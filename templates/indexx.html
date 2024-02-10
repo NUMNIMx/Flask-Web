@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เว็บไซต์ของคุณ</title>
+</head>
+<body>
+    <h1>เว็บไซต์ของคุณ</h1>
+
+    <div style="position: absolute; top: 0; right: 0;">
+        <ul>
+            <li><a href="mailto:{{ contact_info.email }}">{{ contact_info.email }}</a></li>
+            <li><a href="tel:{{ contact_info.phone }}">{{ contact_info.phone }}</a></li>
+            <li><a href="{{ contact_info.github }}">{{ contact_info.github }}</a></li>
+        </ul>
+    </div>
+
+    </body>
+</html>
