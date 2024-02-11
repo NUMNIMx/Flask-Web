@@ -2,11 +2,8 @@
 
 {% block content %}
 
-<!-- the full dict for a president is sent here as pres by the route -->
-
 <h1>{{ pres['President'] }}</h1>
 
-<!-- NOTE the pattern for pointing to a file inside the static folder -->
 <img class="right" src="{{ url_for('static', filename='images/' + pres['Image']) }}" alt="President portrait">
 
 <p>{{ pres['President'] }} เป็นประธานาธิบดีคนที่ {{ ord }} ของสหรัฐอมเริกา เกิดวันที่ {{ pres['Birth-date'] }} ณ ที่ {{ pres['Birthplace'] }}. เมื่ออายุ {{ pres['Age-when-took-office'] }} เข้ารับตำแหน่งเมื่อ {{ pres['Took-office'] }}. สังกัดพรคคการเมือง: {{ pres['Party'] }} Party.
@@ -27,7 +24,6 @@
 
 <p><a href="{{ pres['Wikipedia-entry'] }}">คลิกที่นี่เพื่อประวัติเพิ่มเติมใน Wikipedia ของ {{ pres['President'] }}.</a></p>
 
-<!-- NOTE the way to link to a route: Use the function name -->
 <p><a href="{{ url_for('index') }}">กลับไปยังหน้าแรก</a> เพื่อเลือกดูประวัติของประธานาธิปดีท่านอื่น.</p>
 
 {% endblock %}
