@@ -1,20 +1,22 @@
 <!DOCTYPE html>
-<html lang="th">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>เว็บไซต์ของคุณ</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>{{ the_title }}</title>
+
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+
 </head>
 <body>
-    <h1>เว็บไซต์ของคุณ</h1>
 
-    <div style="position: absolute; top: 0; right: 0;">
-        <ul>
-            <li><a href="mailto:{{ contact_info.email }}">{{ contact_info.email }}</a></li>
-            <li><a href="tel:{{ contact_info.phone }}">{{ contact_info.phone }}</a></li>
-            <li><a href="{{ contact_info.github }}">{{ contact_info.github }}</a></li>
-        </ul>
-    </div>
+<div id="container">
 
-    </body>
+  {% block content %}
+  {% endblock %}
+
+</div>
+
+</body>
 </html>
