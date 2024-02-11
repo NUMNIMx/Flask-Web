@@ -9,12 +9,12 @@
 <!-- NOTE the pattern for pointing to a file inside the static folder -->
 <img class="right" src="{{ url_for('static', filename='images/' + pres['Image']) }}" alt="President portrait">
 
-<p>{{ pres['President'] }} เป็นประธานาธิบดีคนที่ {{ ord }} ของสหรัฐอมเริกา เกิดวันที่ {{ pres['Birth-date'] }} ที่ {{ pres['Birthplace'] }}. เขาอายุ {{ pres['Age-when-took-office'] }} เขารับตำแหน่งเมื่อ {{ pres['Took-office'] }}. สังกัดพรคคการเมือง: {{ pres['Party'] }} Party.
+<p>{{ pres['President'] }} เป็นประธานาธิบดีคนที่ {{ ord }} ของสหรัฐอมเริกา เกิดวันที่ {{ pres['Birth-date'] }} ณ ที่ {{ pres['Birthplace'] }}. เมื่ออายุ {{ pres['Age-when-took-office'] }} เข้ารับตำแหน่งเมื่อ {{ pres['Took-office'] }}. สังกัดพรคคการเมือง: {{ pres['Party'] }} Party.
 
 	{% if pres['Death-date'] == pres['Left-office'] %}
-		He died in office on {{ pres['Death-date'] }}.
+		เขาเสียชีวิตในหน้าที่ในวันที่ {{ pres['Death-date'] }}.
 	{% elif pres['Left-office'] != 'Incumbent'%}
-		He left office on {{ pres['Left-office'] }}.
+		เขาหมดเวลาในการดำรงตำแหน่งวันที่ {{ pres['Left-office'] }}.
 	{% endif %}
 
 	อาชีพของเขาก่อนดำรงดำแหน่งประธานาธิปดี : {{ pres['Occupation'] }}.
