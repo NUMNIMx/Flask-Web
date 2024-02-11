@@ -24,7 +24,5 @@ $ pip install Flask
 
 ## เริ่มการทำงาน
 ```bash
-$ flask --app presidents run
-#หรือ
 $ python presidents.py
 ```
