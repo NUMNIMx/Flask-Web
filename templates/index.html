@@ -6,6 +6,11 @@
 
 <p>Click any president’s name.</p>
 
+<!-- pairs is a list that must be sent here by a route function
+
+     The list will contain 45 pairs: a presidency number, and a
+     president's name -->
+
     <ul>
     {% for pair in pairs %}
         <li><a href="{{ url_for( 'detail', num=pair[0] ) }}">{{ pair[1] }}</a></li>
