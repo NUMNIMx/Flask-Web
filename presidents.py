@@ -6,6 +6,8 @@ application = app
 
 presidents_list = convert_to_dict("presidents.csv")
 
+# create a list of tuples in which the first item is the number
+# (Presidency) and the second item is the name (President)
 pairs_list = []
 for p in presidents_list:
     pairs_list.append( (p['Presidency'], p['President']) )
