@@ -1,33 +1,34 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template
+from modules import convert_to_dict, make_ordinal
 
 app = Flask(__name__)
+application = app
 
-contact_info = {
-    "email": "youremail@example.com",
-    "phone": "123-456-7890",
-    "github": "github.com/yourusername"
-}
+presidents_list = convert_to_dict("presidents.csv")
 
-@app.route("/")
+pairs_list = []
+for p in presidents_list:
+    pairs_list.append( (p['Presidency'], p['President']) )
+
+# first route
+
+@app.route('/')
 def index():
-    return render_template("index.html")
+    return render_template('index.html', pairs=pairs_list, the_title="Presidents Index")
 
-@app.route("/check_cps", methods=["POST"])
-def check_cps():
-    start_time = request.form["start_time"]
-    end_time = request.form["end_time"]
-    clicks = request.form["clicks"]
+# second route
 
+@app.route('/president/<num>')
+def detail(num):
     try:
-        cps = int(clicks) / (int(end_time) - int(start_time))
-    except ValueError:
-        cps = 0
+        pres_dict = presidents_list[int(num) - 1]
+    except:
+        return f"<h1>Invalid value for Presidency: {num}</h1>"
+    # a little bonus function, imported on line 2 above
+    ord = make_ordinal( int(num) )
+    return render_template('president.html', pres=pres_dict, ord=ord, the_title=pres_dict['President'])
 
-    return render_template("result.html", cps=cps)
 
-@app.route("/info")
-def info():
-    return render_template("indexx.html", contact_info=contact_info)
-
-if __name__ == "__main__":
+# keep this as is
+if __name__ == '__main__':
     app.run(debug=True)
