@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 
 app = Flask(__name__)
+
 contact_info = {
     "email": "youremail@example.com",
     "phone": "123-456-7890",
@@ -24,8 +25,8 @@ def check_cps():
 
     return render_template("result.html", cps=cps)
 
-@app.route("/")
-def index():
+@app.route("/info")
+def info():
     return render_template("indexx.html", contact_info=contact_info)
 
 if __name__ == "__main__":
