@@ -14,11 +14,11 @@
 	{% if pres['Death-date'] == pres['Left-office'] %}
 		เขาเสียชีวิตในหน้าที่ในวันที่ {{ pres['Death-date'] }}.
 	{% elif pres['Left-office'] != 'Incumbent'%}
-		เขาหมดเวลาในการดำรงตำแหน่งวันที่ {{ pres['Left-office'] }}.
+		เขาสิ้นสุดในการดำรงตำแหน่งวันที่ {{ pres['Left-office'] }}.
 	{% endif %}
 
-	อาชีพของเขาก่อนดำรงดำแหน่งประธานาธิปดี : {{ pres['Occupation'] }}.
-	จบการศึกษาจาก : {{ pres['College'] }}.
+	อาชีพของเขาก่อนดำรงดำแหน่งประธานาธิปดี คือ {{ pres['Occupation'] }}.
+	จบการศึกษาจาก {{ pres['College'] }}.
 
 	{% if pres['Location-death'] != "NA" %}
 		สถานที่เสียชีวิต {{ pres['Location-death'] }}, ในวันที่ {{ pres['Death-date'] }}.
